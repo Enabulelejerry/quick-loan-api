@@ -27,7 +27,7 @@ class AuthService
             return response()->json(['message' => 'Invalid credentials'], 401);
         }
 
-        $token = $user->createToken('Access Token')->accessToken;
+        $token = $user->createToken('Access Token')->plainTextToken;
 
         return response()->json([
             'token' => $token,

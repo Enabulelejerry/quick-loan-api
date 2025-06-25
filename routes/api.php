@@ -31,7 +31,7 @@ Route::prefix('public')->group(function () {
     Route::get('loan-products/{id}', [PublicLoanController::class, 'view']);
 });
 
-Route::group(['middleware' => ['auth:api']], function () {
+Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/me', [AuthController::class, 'me']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/paystack/initialize', [PaymentController::class, 'initialize']);
